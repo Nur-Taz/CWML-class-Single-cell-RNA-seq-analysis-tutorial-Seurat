@@ -1,1 +1,3 @@
-#fill in read me later
+Make this a better readme!
+
+Markdown file is a this level, webpage documents stored in docs. 
