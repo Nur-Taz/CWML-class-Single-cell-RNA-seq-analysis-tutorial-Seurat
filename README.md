@@ -9,6 +9,3 @@ During the class, participants carry out guided, hands-on scripting to accomplis
 #### [Access the Intro to R for Seurat content](https://sauuyer.github.io/class-demo-instance/)
 
 #### Access content for Applying the Seurat R Package
-
-# CWML's Bioinformatics Program
-* [Learn about our services and supported software](https://library.medicine.yale.edu/bioinformatics)
