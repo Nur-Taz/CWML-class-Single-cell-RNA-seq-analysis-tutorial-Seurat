@@ -1,0 +1,12 @@
+name: "test name - r class thingy"
+output_dir: "docs"
+navbar:
+  title: "title"
+  left:
+  - text: "Left Welcome!"
+   href: index.html
+  - text: "Intro to R for Seurat"
+   href: speed-and-distance.html
+output:
+  html_document: 
+theme: jekyll-theme-slate
