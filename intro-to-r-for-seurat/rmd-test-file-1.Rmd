@@ -1,0 +1,56 @@
+---
+title: "This is the title"
+knit: (function(input_file, encoding) {
+  out_dir <- 'docs';
+  rmarkdown::render(input_file,
+ encoding=encoding,
+ output_file=file.path(dirname(input_file), out_dir, 'index.html'))})
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Creating variables in R
+
+Variables allow you to store information within keywords. This stored information can be a single data element, like a string, a number, or a boolean, or variables can be used to store more complicated data structures such as lists, dataframes, graphs, and custom user-created functions. 
+
+Variables in R are created using the following notation: <-
+
+#### Single datum and lists stored as variables
+```{r cars}
+x <- 1
+x
+numerical_list = c(0.75, 10, 8, 7, 5, 6.5)
+numerical_list
+list_of_strings <- c("Elo", "Charlie", "Molly", "Woody", "Monte", "Ben")
+list_of_strings
+list_of_booleans <- c(TRUE, FALSE, FALSE, FALSE, TRUE, FALSE)
+list_of_booleans
+```
+
+#### Data structures stored as variables
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+df <- data.frame(
+  list_of_strings,
+  numerical_list,
+  list_of_booleans
+)
+df
+```
+
+## Using functions in R
+
+Functions allow you to perform complicated tasks in R without custom codeing every detail. Functions are either part of Base R, or they are tied to a particular package. Base R includes mathmatical, basic stats and basic graphs. Packages add additional functions that may allow for more customization or more specific analysis types.   
+
+Functions take arguments and provide results.
+
+#### Mathmatical functions in Base R
+```{r}
+mean(df$numerical_list)
+sd(df$numerical_list)
+```
+
