@@ -8,7 +8,7 @@ During the class, participants carry out guided, hands-on scripting to accomplis
 
 ### Intro to R for Seurat
 ##### * [View the Intro to R for Seurat content in your web browser](https://sauuyer.github.io/class-demo-instance/)
-##### * [View the R markdown file containing the R scripts for the intro content (copy and paste these scripts into your own .rmd file)](https://github.com/Nur-Taz/CWML-class-Single-cell-RNA-seq-analysis-tutorial-Seurat/blob/master/intro-to-r-for-seurat/rmd-test-file-1.Rmd)
+##### * [View the R markdown file containing the R scripts for the intro content (copy and paste these scripts into your own .rmd file)](https://github.com/sauuyer/class-demo-instance/blob/master/rmd-test-file-1.Rmd)
 
 ### Applying the Seurat R Package
 #### Access content for Applying the Seurat R Package
