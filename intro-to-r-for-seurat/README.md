@@ -1,3 +1,1 @@
-Make this a better readme!
-
-Markdown file is a this level, webpage documents stored in docs. 
+Markdown and rscript files can be found at this level of the project directory.
