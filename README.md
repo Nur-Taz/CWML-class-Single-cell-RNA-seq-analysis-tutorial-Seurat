@@ -6,9 +6,9 @@ During the class, participants carry out guided, hands-on scripting to accomplis
 
 # This session is made up of two parts, Intro to R for Seurat, and Applying the Seurat R Package
 
-### Intro to R for Seurat
-##### * [View the Intro to R for Seurat content in your web browser](https://sauuyer.github.io/class-demo-instance/)
-##### * [View the R markdown file containing the R scripts for the intro content (copy and paste these scripts into your own .rmd file)](https://github.com/sauuyer/class-demo-instance/blob/master/rmd-test-file-1.Rmd)
+### Part 1: Intro to R for Seurat (30 minutes)
+###### * [View the Intro to R for Seurat content in your web browser](https://sauuyer.github.io/intro-to-r-for-seurat/)
+###### * [View the R script file](https://github.com/sauuyer/intro-to-r-for-seurat/blob/master/intro-to-r-for-seurat.R) 
 
-### Applying the Seurat R Package
+### Part 2: Applying the Seurat R Package (2 hours)
 #### Access content for Applying the Seurat R Package
