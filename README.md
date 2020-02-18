@@ -11,4 +11,4 @@ During the class, participants carry out guided, hands-on scripting to accomplis
 ###### * [View the R script file](https://github.com/sauuyer/intro-to-r-for-seurat/blob/master/intro-to-r-for-seurat.R) 
 
 ### Part 2: Applying the Seurat R Package (2 hours)
-#### Access content for Applying the Seurat R Package
+
