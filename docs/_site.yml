@@ -1,0 +1,10 @@
+name: "Intro to R for Seurat"
+output_dir: "docs"
+navbar:
+  title: "title"
+  left:
+  - text: "Left Welcome!"
+   href: index.html
+output:
+  html_document: 
+theme: jekyll-theme-slate
