@@ -9,6 +9,7 @@ During the class, participants carry out guided, hands-on scripting to accomplis
 ### Part 1: Intro to R for Seurat (30 minutes)
 ###### * [View the Intro to R for Seurat content in your web browser](https://sauuyer.github.io/intro-to-r-for-seurat/)
 ###### * [View the R script file](https://github.com/sauuyer/intro-to-r-for-seurat/blob/master/intro-to-r-for-seurat.R) 
+###### * [View the R markdown file](https://github.com/Nur-Taz/CWML-class-Single-cell-RNA-seq-analysis-tutorial-Seurat/blob/master/intro-to-r-for-seurat/rmd-test-file-1.Rmd)
 
 ### Part 2: Applying the Seurat R Package (2 hours)
 
