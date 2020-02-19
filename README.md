@@ -12,4 +12,7 @@ During the class, participants carry out guided, hands-on scripting to accomplis
 ###### * [View the R markdown file](https://github.com/Nur-Taz/CWML-class-Single-cell-RNA-seq-analysis-tutorial-Seurat/blob/master/intro-to-r-for-seurat/rmd-test-file-1.Rmd)
 
 ### Part 2: Applying the Seurat R Package (2 hours)
+###### * [View the pdf for analysis of 1k murine E18.5 brain cells on Seurat](https://github.com/Nur-Taz/CWML-class-Single-cell-RNA-seq-analysis-tutorial-Seurat/blob/master/Neu_1k_UMAP.pdf)
+###### * [View the pdf for analysis of 10k murine E18.5 brain cells on Seurat](https://github.com/Nur-Taz/CWML-class-Single-cell-RNA-seq-analysis-tutorial-Seurat/blob/master/Neu_10k_UMAP.pdf)
 
+The clustering and annotation of clusters shown here are only to illustrate how to use the Seurat package as a tool to analyze and visualize single-cell RNA-seq datasets. The analyses presented here are not meant to be used/considered as accurate representations of clustering and cluster annotations of any kind neurological/biological data. The results shown in these analyses are purely for the purpose of exercise and may nor may not have biological relevance. 
