@@ -17,7 +17,3 @@ During the class, participants carry out guided, hands-on scripting to accomplis
 
 The clustering and annotation of clusters shown here are only to illustrate how to use the Seurat package as a tool to analyze and visualize single-cell RNA-seq datasets. The analyses presented here are not meant to be used/considered as accurate representations of clustering and cluster annotations of any kind neurological/biological data. The results shown in these analyses are purely for the purpose of exercise and may nor may not have biological relevance.
 
-For further questions or informations, please contact:
-
-Nur-Taz Rahman (nur-taz.rahman@yale.edu) . 
-Sawyer Newman (sawyer.newman@yale.edu)
