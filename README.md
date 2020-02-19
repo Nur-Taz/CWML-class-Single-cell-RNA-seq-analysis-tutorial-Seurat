@@ -19,5 +19,5 @@ The clustering and annotation of clusters shown here are only to illustrate how 
 
 For further questions or informations, please contact:
 
-Nur-Taz Rahman (nur-taz.rahman@yale.edu)
+Nur-Taz Rahman (nur-taz.rahman@yale.edu) . 
 Sawyer Newman (sawyer.newman@yale.edu)
