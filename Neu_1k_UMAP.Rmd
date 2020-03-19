@@ -1,0 +1,185 @@
+---
+## YAML
+output: html_document
+
+---
+
+# UMAP on murine fetal brain 1k cells  
+### Nur-Taz Rahman, PhD  
+### Feb 12, 2020
+
+####The clustering and annotation of clusters shown here are only to illustrate how to use the Seurat package as a tool to analyze and visualize single-cell RNA-seq datasets. The analyses presented here are not meant to be used/considered as accurate representations of clustering and cluster annotations of any kind neurological/biological data. The results shown in these analyses are purely for the purpose of exercise and may nor may not have biological relevance.
+
+## Loading necessary packages
+
+```{r}
+
+library (dplyr, quietly = TRUE)
+library (Seurat)
+
+```
+
+## Direct R to the directory you want to work in
+
+```{r}
+
+setwd ("/Users/nr267/Desktop/All Work/Classes/Spring 2020/Seurat_class_resources/")
+
+
+```
+
+## Load data and carry out QC
+
+```{r, fig.width = 10, warning = FALSE}
+
+Neu_1k <- Read10X(data.dir = "../Seurat_class_resources/filtered_feature_bc_matrix_1K_neuron/1K_mouse_brain_cells/")
+Neu_1k <- CreateSeuratObject(counts = Neu_1k, project = "Neu_1k", min.cells = 3, min.features = 200)
+
+Neu_1k
+
+Neu_1k[["percent.mt"]] <- PercentageFeatureSet(Neu_1k, pattern = "^mt-")
+
+head (Neu_1k@meta.data, 10)
+
+VlnPlot (Neu_1k, features = c("nFeature_RNA", "nCount_RNA", "percent.mt"), ncol = 3)
+
+
+plot1 <- FeatureScatter(Neu_1k, feature1 = "nCount_RNA", feature2 = "percent.mt")
+plot2 <- FeatureScatter(Neu_1k, feature1 = "nCount_RNA", feature2 = "nFeature_RNA")
+
+CombinePlots(plots = list(plot1, plot2))
+
+```
+## Pre-process data
+
+```{r}
+
+Neu_1k <- subset(Neu_1k, subset = nFeature_RNA > 200 & nFeature_RNA < 6000 & percent.mt < 10)
+
+```
+
+## Check data dimensions after subsetting 
+
+```{r}
+
+Neu_1k
+
+```
+
+## LogNormalize Data (normalize count data per cell and transform to log scale)
+
+```{r}
+
+Neu_1k <- NormalizeData(Neu_1k, verbose = TRUE)
+
+```
+
+## Pre-process data for PCA
+
+```{r, message = FALSE, fig.width = 10, warning = FALSE}
+
+Neu_1k <- FindVariableFeatures(Neu_1k, selection.method = "vst", nfeatures = 2000)
+
+top10 <- head(VariableFeatures(Neu_1k), 10)
+
+plot3 <- VariableFeaturePlot(Neu_1k)
+
+plot4 <- LabelPoints(plot = plot3, points = top10, repel = TRUE)
+
+CombinePlots(plots = list(plot3, plot4))
+
+all.genes <- rownames(Neu_1k)
+
+Neu_1k <- ScaleData(Neu_1k, features = all.genes)
+
+Neu_1k
+
+Neu_1k<- RunPCA(Neu_1k, features = VariableFeatures(object = Neu_1k))
+
+DimPlot (Neu_1k, reduction = "pca")
+
+ElbowPlot(Neu_1k)
+
+```
+
+```{r, fig.height = 10}
+
+DimHeatmap (Neu_1k, dims = 1:15, cells = 50, balanced = TRUE)
+
+```
+
+## Run UMAP on dataset
+
+```{r}
+
+Neu_1k <- FindNeighbors(Neu_1k, dims = 1:15)
+Neu_1k <- FindClusters (Neu_1k, resolution = 0.5)
+
+Neu_1k <- RunUMAP(Neu_1k, dims = 1:15)
+
+DimPlot (Neu_1k, reduction = "umap")
+
+
+```
+
+## Find all markers of each cluster to identify them
+```{r}
+
+cluster0.markers <- FindMarkers (Neu_1k, ident.1 = 0, min.pct = 0.5)
+cluster1.markers <- FindMarkers (Neu_1k, ident.1 = 1, min.pct = 0.5)
+cluster2.markers <- FindMarkers (Neu_1k, ident.1 = 2, min.pct = 0.5)
+cluster3.markers <- FindMarkers (Neu_1k, ident.1 = 3, min.pct = 0.5)
+cluster4.markers <- FindMarkers (Neu_1k, ident.1 = 4, min.pct = 0.5)
+cluster5.markers <- FindMarkers (Neu_1k, ident.1 = 5, min.pct = 0.5)
+cluster6.markers <- FindMarkers (Neu_1k, ident.1 = 6, min.pct = 0.5)
+
+```
+
+## To view the genes lists on your RStudio console
+
+View(cluster0.markers)  
+View(cluster1.markers)  
+View(cluster2.markers)  
+View(cluster3.markers)  
+View(cluster4.markers)  
+View(cluster5.markers)  
+View(cluster6.markers)
+
+## To "export" the genes lists to your current directory
+
+write.csv(cluster0.markers, "cluster0_markers_UMAP")  
+write.csv(cluster1.markers, "cluster1_markers_UMAP")  
+write.csv(cluster2.markers, "cluster2_markers_UMAP")  
+write.csv(cluster3.markers, "cluster3_markers_UMAP")  
+write.csv(cluster4.markers, "cluster4_markers_UMAP")  
+write.csv(cluster5.markers, "cluster5_markers_UMAP")  
+write.csv(cluster6.markers, "cluster6_markers_UMAP")
+
+## Find genes distinguishing one cluster from other specific clusters
+
+```{r}
+
+green_cluster.markers <- FindMarkers (Neu_1k, ident.1 = 2, ident.2 = c(0, 1), min.pct = 0.25)
+
+```
+
+
+## Label UMAP clusters with ids
+
+```{r}
+
+new.cluster.ids <- c("Astorcytes", "Glial Cells", "Neurons", "Endothelial Cells", "Brain Pericytes", "Oligodendrocytes", "Oligodendrocyte Precursors")
+names(new.cluster.ids) <- levels (Neu_1k)
+Neu_1k <- RenameIdents (Neu_1k, new.cluster.ids)
+DimPlot (Neu_1k, reduction = "umap", label = TRUE, pt.size = 0.5) 
+
+```
+## Visualize feature expression
+
+```{r}
+
+FeaturePlot(Neu_1k, features = c("Gria2", "Eomes", "Mef2c", "Fabp7", "Maf", "Snca", "Adarb2"))
+
+```
+
+
