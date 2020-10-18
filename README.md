@@ -23,7 +23,7 @@ The clustering and annotation of clusters shown here are only to illustrate how 
 * The "avg_logFC" value from the ```FindMarkers``` and ```FindAllMarkers``` functions represent natural log or ln(fold change). <br/>  
 * ```RunPCA``` performs linear dimensionality reduction. <br/>
 * ```RunUMAP/RunTSNE``` performs non-linear dimenionality reduction. <br/>
-* ```FindNeighbors``` constructs a KNN graph-based on the euclidean distance in PCA space, and refine the edge weights between any two cells based on the shared overlap in their local neighborhoods (Jaccard similarity. <br/>
+* ```FindNeighbors``` constructs a KNN graph-based on the euclidean distance in PCA space, and refine the edge weights between any two cells based on the shared overlap in their local neighborhoods (Jaccard similarity). <br/>
 * ```FindClusters``` iteratively groups cells together, with the goal of optimizing the standard modularity function. Applies techniques such as the Louvain algorithm (default) or SLM (Smart Local Moving) algorithm.  
 
 # Resources for cluster annotation
