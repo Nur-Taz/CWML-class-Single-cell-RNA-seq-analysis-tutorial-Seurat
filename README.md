@@ -19,6 +19,13 @@ During the class, participants carry out guided, hands-on scripting to accomplis
 
 The clustering and annotation of clusters shown here are only to illustrate how to use the Seurat package as a tool to analyze and visualize single-cell RNA-seq datasets. The analyses presented here are not meant to be used/considered as accurate representations of clustering and cluster annotations for any kind of neurological/biological data. The results shown in these analyses are purely for the purpose of exercise and may nor may not have biological relevance.
 
+# Important notes from the original vignette
+The "avg_logFC" value from the ```FindMarkers``` and ```FindAllMarkers``` functions represent natural log or ln(fold change). 
+```RunPCA``` performs linear dimensionality reduction
+```RunUMAP/RunTSNE``` performs non-linear dimenionality reduction
+```FindNeighbors``` constructs a KNN graph-based on the euclidean distance in PCA space, and refine the edge weights between any two cells based on the shared overlap in their local neighborhoods (Jaccard similarity)
+```FindClusters``` iteratively groups cells together, with the goal of optimizing the standard modularity function. Applies techniques such as the Louvain algorithm (default) or SLM (Smart Local Moving) algorithm. 
+
 # Resources for cluster annotation
 ###### * [Tabula Muris](https://tabula-muris.ds.czbiohub.org/)
 ###### * [Single Cell Portal (Beta)](https://singlecell.broadinstitute.org/single_cell)
